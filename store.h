@@ -10,6 +10,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include "HashTable.h"
 using namespace std;
 class Store {
 public:
@@ -32,7 +33,7 @@ public:
 	void startDay();
 private:
 	queue<Transaction*> transactionLog; // storage of transaction data
-								//	Hash table of customers
+	HashTable clientList;				//	Hash table of customers
 								// Hash table of inventory
 	void showInventory();
 	void returnItem();

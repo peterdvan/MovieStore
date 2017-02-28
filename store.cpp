@@ -43,6 +43,19 @@ void Store::displayLog() {
 		//transactionLog.push(action);
 	}
 }
+void Store::buildClients(istream &input) {
+	string tempLine = "";
+	Client* temp;
+	while (!input.eof()) {
+		getline(input, tempLine);
+		if (input.eof()) {
+			break;
+		}
+		temp = new Client(tempLine);
+		clientList.insert(temp);
+	}
+
+}
 
 // displays inventory
 void Store::showInventory() {

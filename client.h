@@ -1,7 +1,7 @@
 /* Client ADT: A person that holds certain data pertaining to
 *              a bank account.
 *  Implementation and Assumptions:
-*  Assumes that the Banker class will handle “Move” transactions,
+*  Assumes that the Banker class will handle ï¿½Moveï¿½ transactions,
 * which involve more than one client
 * Assumes account class knows when it can overdraw
 */
@@ -19,7 +19,7 @@ public:
 	Client();
 	Client(string data); // default constructor
 						 // constructor
-	Client(int num);
+	//Client(int num);
 
 	// De-allocates all memory used
 	~Client();
