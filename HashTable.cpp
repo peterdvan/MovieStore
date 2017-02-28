@@ -52,4 +52,22 @@ void HashTable::insert(Client* customer) {
 	arr[key].firstNode->data = customer;
 	arr[key].firstNode->next = tmp;
 }
+bool HashTable::findClient(Client* target, Client *& retrieved){
+	int arrayLocation = hash(target);
+	Node* current = arr[arrayLocation].firstNode;
+	if (current == NULL) {
+		return false;
+	} else {
+		while (current != NULL) {
+			if (*current->data == *target) {
+				retrieved = current->data;
+				return true;
+			} else {
+				current = current->next;
+			}
+		}
+		retrieved = NULL;
+		return false;
+	}
+}
 

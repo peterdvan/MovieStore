@@ -10,6 +10,7 @@ public:
 	//void createTable();
 	//bool isEmpty();
 	void insert(Client*);
+	bool findClient(Client*, Client*&);
 
 
 protected:
