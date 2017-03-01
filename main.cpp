@@ -11,14 +11,8 @@ int main() {
 	ifstream clientText("customers.txt");
 	Store newStore;
 //	newStore.buildTransactions(transactionText);
-    newStore.buildClients(clientText);
+//  newStore.buildClients(clientText);
 //	newStore.displayLog();
-
-
-
-
-
-
 
 	return 0;
 }

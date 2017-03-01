@@ -1,8 +1,16 @@
 #pragma once
 #include "transaction.h"
-class transactionFactor {
+using namespace std;
+//--------------------------  class TransactionFactory ------------------------
+// TransactionFactory ADT: A class used to hide information from the user
+//
+// Implementation and assumptions:
+//   -- correctly formatted
+//-----------------------------------------------------------------------------
+class TransactionFactory {
 
 public:
-	virtual void doTransaction();
-	virtual friend ostream& operator<<(ostream& output, Transaction action);
+	Transaction* buildTransaction(string);
+	void doTransaction(Transaction * action);
+
 };

@@ -1,0 +1,42 @@
+#include "Borrow.h"
+
+Borrow::Borrow(string data) {
+	istringstream ss(data);
+	ss >> transactionType;
+	ss >> clientID;
+	ss >> mediaType;
+	ss >> movieType;
+	getline(ss,movieData);
+	cout << getTransactionType() << " " << getClientID() <<
+		" " << getMediaType() << " " << getMovieType() << " " << getMovieData() << endl;
+}
+
+ostream& operator<<(ostream& output, Borrow action) {
+	output << action.getTransactionType() << " " << action.getClientID() <<
+		" " << action.getMediaType() << " " << action.getMovieType() << " " << action.getMovieData() << endl;
+	return output;
+}
+
+char Borrow::getTransactionType() {
+	return transactionType;
+}
+
+int Borrow::getClientID() {
+	return clientID;
+}
+
+char Borrow::getMediaType() {
+	return mediaType;
+}
+
+char Borrow::getMovieType() {
+	return movieType;
+}
+
+string Borrow::getMovieData() {
+	return movieData;
+}
+
+void Borrow::doTransaction()
+{
+}

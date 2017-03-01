@@ -11,22 +11,23 @@
 #include <sstream>
 #include <fstream>
 #include "HashTable.h"
+#include "movie.h"
+#include "bintree.h"
+
 using namespace std;
 class Store {
 public:
 	Store();
-
-	void buildTransactions(istream & transactionData);
-
 	// reads in data from file and initiates client 
 	// objects and stores them in the BST
-	void buildClients(istream & infile);
+	void buildClients(istream & clientData);
 
 	//prints the history of all accounts opening and closing balances
 	void report()const;
 	void displayLog();
 	//reads transactions from file and puts them into queue
-	void buildTransactions(ifstream & transactionData);
+	void buildTransactions(ifstream & );
+    void buildMovies(ifstream &);
 
 
 	//loop that runs through the Transaction queue until empty 
@@ -34,7 +35,9 @@ public:
 private:
 	queue<Transaction*> transactionLog; // storage of transaction data
 	HashTable clientList;				//	Hash table of customers
-								// Hash table of inventory
+    BinTree classicsMovies;
+    BinTree dramaMovies;
+    BinTree comedyMovies;
 	void showInventory();
 	void returnItem();
 	void borrowItem();
