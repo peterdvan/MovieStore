@@ -269,46 +269,7 @@ void BinTree::inOrderWalk(Node *subtree) const {
         inOrderWalk(subtree->right);    //then right child
     }
 }
-// ------------------------- operator= ---------------------------------
-// Description: This method assigns a bintree instance to a deep copy of
-// another bintree. It does this by calling a helper method to recursively
-// interate through the copy bintree and this bintree making copies of the
-// data inside each node
-// Preconditions: an instance of a bintree
-// Postconditions: tree is assigned to a deep copy of another tree
-// ----------------------------------------------------------------------------
-BinTree& BinTree::operator=(const BinTree& copyTree) {
-    if(copyTree == *this){          //case: same tree, self assignment
-        return *this;               //return the original tree
-    }else{                          //case: make deep copy
-        this->makeEmpty();          //clear this tree
-        preOrderCopy(copyTree.root, this->root);    //make deep copy and assign
-        return *this;               //return new this tree
-    }
-}
-// ------------------------- preOrderCopy ---------------------------------
-// Description: This method recurse through a tree in a preorder fashion. It
-// does this to make copies of each nodedata and make new nodes inside this
-// tree and not changing the other tree
-// Preconditions: two instance of bintrees
-// Postconditions: tree assigned to a deep copy of another
-// ----------------------------------------------------------------------------
-void BinTree::preOrderCopy(Node* copySubtree, Node* &subtree) {
-    if(copySubtree != nullptr){     //case: node of the copy tree is not null
-        subtree = new Node;         //make a new node in this tree at location
-        Movie* copyData =
-                new Movie(*copySubtree->data); //make a copy of the other
-                                                  // Movie
-        subtree->data = copyData;  //set this tree's node's
-                                   //nodedata to the copy of the other
-        preOrderCopy(copySubtree->left,
-                     subtree->left); //go to left node and continue copy cycle
-        preOrderCopy(copySubtree->right,
-                     subtree->right);//go the right node and repeat cycle
-    }else{                          //case: node is null
-        subtree = nullptr;          //make this node null as well
-    }
-}
+
 // ------------------------- operator== ---------------------------------
 // Description: This method compares two bintrees and returns true if they
 // have the same contents. It will return false otherwise. This method uses a

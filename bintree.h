@@ -37,8 +37,6 @@ public:
     //operators
     friend ostream& operator<< (ostream& out, const BinTree&); //Friend
                                                 // operator to print a tree
-    BinTree& operator=(const BinTree &);    //operator to assign a tree to
-                                            //another
     bool operator==(const BinTree &) const; //operator to check the equality
                                             // of two trees
     bool operator!=(const BinTree &) const; //operator to check if two trees
@@ -78,7 +76,6 @@ private:
     void sideways(Node*, int) const;	    //helper for displaySideways()
     void clear(Node*& subtree);             //helper to clear a tree of nodes
     void inOrderWalk(Node* subtree) const;  //helper to print tree
-    void preOrderCopy(Node*, Node* &);      //helper to copy/assign a tree
     bool equalityOperatorHelper(Node*, Node*) const; //helper to check equality
     void arrayToBSTreeHelper(Movie* [], int, int); //helper to convert
                                                       // array to tree

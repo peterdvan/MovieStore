@@ -35,7 +35,7 @@ void Store::buildClients(istream &clientData) {
 void Store::buildMovies(ifstream & movieData) {
 
     while (movieData.good()) {
-        char type = '';
+        char type = '~';
         string str;
         getline(movieData, str);
         if (str != "") {

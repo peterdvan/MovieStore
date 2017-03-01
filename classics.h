@@ -1,8 +1,16 @@
 #pragma once
 #include "movie.h"
 class Classics : public Movie {
-	 bool operator<(const Classics&);
-	 bool operator>(const Classics&);
+public:
+	Classics(string data);
+	~Classics();
 private:
-	string majorActor;
+	string majorActorFirstName = "";
+	string majorActorLastName = "";
+	int releaseMonth = 0;
+private:
+	virtual bool equalHelper(const Movie & other) const;
+	virtual ostream& print(ostream&) const;
+	virtual bool lessThanHelper(const Movie&);
+	virtual bool greaterThanHelper(const Movie&);
 };
