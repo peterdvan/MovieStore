@@ -11,12 +11,13 @@ Borrow::Borrow(string data) {
 		" " << getMediaType() << " " << getMovieType() << " " << getMovieData() << endl;
 }
 
-ostream& operator<<(ostream& output, Borrow action) {
-	output << action.getTransactionType() << " " << action.getClientID() <<
-		" " << action.getMediaType() << " " << action.getMovieType() << " " << action.getMovieData() << endl;
+
+
+ostream& Borrow::print(ostream& output) const {
+	output << transactionType << " " << clientID <<
+		" " << mediaType << " " << movieType << " " << movieData << endl;
 	return output;
 }
-
 char Borrow::getTransactionType() {
 	return transactionType;
 }

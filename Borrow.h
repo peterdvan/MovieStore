@@ -14,6 +14,7 @@ public:
 	string getMovieData();
 	void doTransaction();
 private:
+	ostream& print(ostream & output) const;
 	char transactionType; // type of transaction
 	int clientID; // id number of client
 	char mediaType; // type of media

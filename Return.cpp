@@ -11,12 +11,13 @@ Return::Return(string data) {
 		" " << getMediaType() << " " << getMovieType() << " " << getMovieData() << endl;
 }
 
-ostream& operator<<(ostream& output, Return action) {
-	output << action.getTransactionType() << " " << action.getClientID() <<
-		" " << action.getMediaType() << " " << action.getMovieType() << " " << action.getMovieData() << endl;
+
+
+ostream& Return::print(ostream& output) const {
+	output << transactionType << " " << clientID << " " << mediaType << 
+		" " << movieType << " " << movieData << endl;
 	return output;
 }
-
 char Return::getTransactionType() {
 	return transactionType;
 }

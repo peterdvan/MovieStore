@@ -1,10 +1,9 @@
-/* Client ADT: A person that holds certain data pertaining to
-*              a bank account.
-*  Implementation and Assumptions:
-*  Assumes that the Banker class will handle �Move� transactions,
-* which involve more than one client
-* Assumes account class knows when it can overdraw
-*/
+//--------------------------  class Client ----------------------------------
+// Client ADT: A collection of certain data including an id number,
+//                  firstName,lastName.
+// Implementation and assumptions:  
+//   -- correctly formatted
+//-----------------------------------------------------------------------------
 
 #ifndef CLIENT_H
 #define CLIENT_H
@@ -26,7 +25,6 @@ public:
 
 	bool operator==(const Client &) const;
 
-	void displayLog();
 	int getId();
 
 
