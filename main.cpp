@@ -12,8 +12,8 @@ int main() {
     ifstream movieText("data4movies.txt");
 	Store newStore;
     newStore.buildMovies(movieText);
-	//newStore.buildTransactions(transactionText);
- //   newStore.buildClients(clientText);
+	newStore.buildTransactions(transactionText);
+    newStore.buildClients(clientText);
 	//newStore.displayLog();
 
 

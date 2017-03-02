@@ -38,13 +38,14 @@ bool Drama::greaterThanHelper(const Movie& other) {
 	}
 }
 bool Drama::equalHelper(const Movie &other) const {
-	const Drama* comedyOther = dynamic_cast<const Drama*>(&other);
-	if(getTitle() == comedyOther->getTitle()){
-		return true;
-	}
+	const Drama* dramaOther = dynamic_cast<const Drama*>(&other);
+	return (getTitle() == dramaOther->getTitle()) &&
+		   (getReleaseYear() == dramaOther->getReleaseYear()) &&
+		   (getDirector() == dramaOther->getDirector());
 	return false;
 }
 ostream& Drama::print(ostream & out) const {
-	out<<title;
+	out << "D, " << stock << ", " << director << ", " << " " << title << ", "
+		<< yearOfRelease;
 	return out;
 }

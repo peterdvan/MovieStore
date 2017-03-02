@@ -4,6 +4,9 @@ class Classics : public Movie {
 public:
 	Classics(string data);
 	~Classics();
+	string getMajorActor() const ;
+	int getReleaseYearClassics() const;
+	int getReleaseMonth() const;
 private:
 	string majorActorFirstName = "";
 	string majorActorLastName = "";

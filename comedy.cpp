@@ -44,12 +44,13 @@ bool Comedy::greaterThanHelper(const Movie& other) {
 }
 bool Comedy::equalHelper(const Movie &other) const {
     const Comedy* comedyOther = dynamic_cast<const Comedy*>(&other);
-    if(getTitle() == comedyOther->getTitle()){
-        return true;
-    }
-    return false;
+	return (getTitle() == comedyOther->getTitle()) &&
+		   (getReleaseYear() == comedyOther->getReleaseYear()) &&
+		   (getDirector() == comedyOther->getDirector());
+
 }
 ostream& Comedy::print(ostream & out) const {
-    out<<title;
+	out << "F, " << stock << ", " << director << ", " << " " << title << ", "
+		<< yearOfRelease;
     return out;
 }

@@ -30,6 +30,15 @@ Classics::Classics(string data) {
 Classics::~Classics() {
 
 }
+string Classics::getMajorActor() const{
+	return majorActorFirstName + " " +majorActorLastName;
+}
+int Classics::getReleaseYearClassics() const{
+	return yearOfRelease;
+}
+int Classics::getReleaseMonth() const{
+	return releaseMonth;
+}
 bool Classics::lessThanHelper(const Movie&other) {
 	const Classics* rhs = dynamic_cast<const Classics*>(&other);
 	if (yearOfRelease != rhs->yearOfRelease) {
@@ -51,13 +60,17 @@ bool Classics::greaterThanHelper(const Movie&other) {
 	}
 }
 bool Classics::equalHelper(const Movie &other) const {
-	const Classics* comedyOther = dynamic_cast<const Classics*>(&other);
-	if(getTitle() == comedyOther->getTitle()){
-		return true;
-	}
-	return false;
+	const Classics* classicsOther = dynamic_cast<const Classics*>(&other);
+	return (getTitle() == classicsOther->getTitle()) &&
+			(getReleaseYear() == classicsOther->getReleaseYear()) &&
+			(getDirector() == classicsOther->getDirector()) &&
+			(getReleaseMonth() == classicsOther->getReleaseMonth()) &&
+			(getReleaseYear() == classicsOther->getReleaseYear()) &&
+			(getMajorActor() == classicsOther->getMajorActor());
 }
 ostream& Classics::print(ostream & out) const {
-	out<<title;
+	out << "C, " << stock << ", " << director << ", " << majorActorFirstName
+		<< ", " << majorActorLastName << " " << title << " " << releaseMonth
+		<< " " << yearOfRelease;
 	return out;
 }

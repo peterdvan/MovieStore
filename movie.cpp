@@ -11,3 +11,12 @@ string Movie::getTitle() const{
 int Movie::getStock() const{
     return stock;
 }
+bool Movie::operator>(const Movie &other) {
+    this->greaterThanHelper(other);
+}
+bool Movie::operator<(const Movie &other) {
+    this->lessThanHelper(other);
+}
+bool Movie::operator==(const Movie &other) {
+    this->equalHelper(other);
+}

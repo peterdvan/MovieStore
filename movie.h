@@ -26,18 +26,13 @@ public:
 	int getReleaseYear() const;
 	string getTitle() const;
 	string getDirector() const;
-    bool operator>(const Movie& other){
-		this->greaterThanHelper(other);
-    }
-    bool operator<(const Movie& other){
-		this->lessThanHelper(other);
-    }
-    virtual bool operator==(const Movie & other){
-        this->equalHelper(other);
-    }
+    bool operator>(const Movie& other);
+    bool operator<(const Movie& other);
+    virtual bool operator==(const Movie & other);
     friend ostream& operator<< (ostream& out, const Movie& data){
         return data.print(out);
     }
+
 private:
     virtual ostream& print(ostream&) const = 0;
     virtual bool equalHelper(const Movie & other) const = 0;

@@ -72,12 +72,15 @@ void Store::returnItem() {
 			 Movie *ptr = factory.buildMovie(str);
 			 switch (type) {
 				 case 'C':
+					 cout<<*ptr<<endl;
 					 classicsMovies.insert(ptr);
 					 break;
 				 case 'D':
+					 cout<<*ptr<<endl;
 					 dramaMovies.insert(ptr);
 					 break;
 				 case 'F':
+					 cout<<*ptr<<endl;
 					 comedyMovies.insert(ptr);
 					 break;
 			 }
