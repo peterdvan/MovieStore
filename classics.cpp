@@ -1,7 +1,7 @@
 #include "classics.h"
 Classics::Classics(string data) {
 	istringstream ss(data);
-	string token;
+	string token = "", placeholder = "";
 	getline(ss, token, ',');//get the type
 
 	getline(ss, token, ',');//get the quantity
@@ -14,29 +14,50 @@ Classics::Classics(string data) {
 	title = token;
 
 	getline(ss, token, ',');//get the year of release
-	vector<string> parts;
-	split(token, ' ', parts);
-	majorActorFirstName = parts[0];
-	majorActorLastName = parts[1];
-	releaseMonth = atoi(parts[2]);
-	yearOfRelease = atoi(parts[3]);
+
+	getline(ss, token, ' ');
+	stringstream s(token);
+	s >> majorActorFirstName;
+
+	s >> majorActorLastName;
+
+	s >> placeholder;
+	releaseMonth = atoi(placeholder.c_str());
+
+	s >> placeholder;
+	yearOfRelease = atoi(placeholder.c_str());
 }
 Classics::~Classics() {
 
 }
-bool Classics::lessThanHelper(const Movie&rhs) {
-	if (yearOfRelease != rhs.yearOfRelease) {
-		return yearOfRelease < rhs.yearOfRelease;
+bool Classics::lessThanHelper(const Movie&other) {
+	const Classics* rhs = dynamic_cast<const Classics*>(&other);
+	if (yearOfRelease != rhs->yearOfRelease) {
+		return yearOfRelease < rhs->yearOfRelease;
 	}
 	else {
-		return majorActor < rhs.majorActor;
+		return majorActorLastName +majorActorFirstName <
+				rhs->majorActorLastName + rhs ->majorActorFirstName;
 	}
 }
-bool Classics::greaterThanHelper(const Movie&rhs) {
-	if (yearOfRelease != rhs.yearOfRelease) {
-		return yearOfRelease > rhs.yearOfRelease;
+bool Classics::greaterThanHelper(const Movie&other) {
+	const Classics* rhs = dynamic_cast<const Classics*>(&other);
+	if (yearOfRelease != rhs->yearOfRelease) {
+		return yearOfRelease > rhs->yearOfRelease;
 	}
 	else {
-		return majorActor > rhs.majorActor;
+		return majorActorLastName + majorActorFirstName >
+			   rhs->majorActorLastName + rhs ->majorActorFirstName;
 	}
+}
+bool Classics::equalHelper(const Movie &other) const {
+	const Classics* comedyOther = dynamic_cast<const Classics*>(&other);
+	if(getTitle() == comedyOther->getTitle()){
+		return true;
+	}
+	return false;
+}
+ostream& Classics::print(ostream & out) const {
+	out<<title;
+	return out;
 }

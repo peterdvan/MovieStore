@@ -11,15 +11,15 @@ Client::Client(string data) {
 Client::~Client() {
 
 }
-void Client::displayLog() {
+/*void Client::displayLog() {
 	cout << "Client " << clientId << "'s Transaction History" << endl;
 	while (!log.empty()) {
-		Transaction action = log.front();
+		Transaction* action = log.front();
 		log.pop();
 		cout << action << endl;
 		log.push(action);
 	}
-}
+}*/
 
 int Client::getId() {
 	return clientId;

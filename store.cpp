@@ -1,5 +1,7 @@
 #include "store.h"
 #include "TransactionFactory.h"
+#include "movieFactory.h"
+
 using namespace std;
 Store::Store() {
 	
@@ -57,3 +59,28 @@ void Store::borrowItem() {
 void Store::returnItem() {
 
 }
+ //TODO: FINISH
+ void Store::buildMovies(ifstream & movieData) {
+
+	 while (movieData.good()) {
+		 char type = '~';
+		 string str;
+		 getline(movieData, str);
+		 if (str != "") {
+			 type = str[0];
+			 movieFactory factory;
+			 Movie *ptr = factory.buildMovie(str);
+			 switch (type) {
+				 case 'C':
+					 classicsMovies.insert(ptr);
+					 break;
+				 case 'D':
+					 dramaMovies.insert(ptr);
+					 break;
+				 case 'F':
+					 comedyMovies.insert(ptr);
+					 break;
+			 }
+		 }
+	 }
+ }

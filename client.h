@@ -22,6 +22,7 @@ public:
 
 	// De-allocates all memory used
 	~Client();
+	void displayLog();
 
 	bool operator==(const Client &) const;
 

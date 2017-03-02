@@ -19,19 +19,32 @@ Drama::Drama(string data) {
 Drama::~Drama() {
 
 }
-bool Drama::lessThanHelper(const Movie& rhs) {
-	if (director != rhs.director) {
-		return director < rhs.director;
+bool Drama::lessThanHelper(const Movie& other) {
+	const Drama* rhs = dynamic_cast<const Drama*>(&other);
+	if (director != rhs->director) {
+		return director < rhs->director;
 	}
 	else {
-		return title < rhs.title;
+		return title < rhs->title;
 	}
 }
-bool Drama::greaterThanHelper(const Movie&rhs) {
-	if (director != rhs.director) {
-		return director > rhs.director;
+bool Drama::greaterThanHelper(const Movie& other) {
+	const Drama* rhs = dynamic_cast<const Drama*>(&other);
+	if (director != rhs->director) {
+		return director > rhs->director;
 	}
 	else {
-		return title > rhs.title;
+		return title > rhs->title;
 	}
+}
+bool Drama::equalHelper(const Movie &other) const {
+	const Drama* comedyOther = dynamic_cast<const Drama*>(&other);
+	if(getTitle() == comedyOther->getTitle()){
+		return true;
+	}
+	return false;
+}
+ostream& Drama::print(ostream & out) const {
+	out<<title;
+	return out;
 }

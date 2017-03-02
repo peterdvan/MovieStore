@@ -10,6 +10,9 @@
 #define MOVIE_H
 
 #include <string>
+#include <cstdlib>
+#include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -23,11 +26,11 @@ public:
 	int getReleaseYear() const;
 	string getTitle() const;
 	string getDirector() const;
-    bool operator>(const Movie&){
-
+    bool operator>(const Movie& other){
+		this->greaterThanHelper(other);
     }
-    bool operator<(const Movie&){
-
+    bool operator<(const Movie& other){
+		this->lessThanHelper(other);
     }
     virtual bool operator==(const Movie & other){
         this->equalHelper(other);
@@ -38,8 +41,8 @@ public:
 private:
     virtual ostream& print(ostream&) const = 0;
     virtual bool equalHelper(const Movie & other) const = 0;
-    virtual bool lessThanHelper(const Movie&);
-    virtual bool greaterThanHelper(const Movie&);
+    virtual bool lessThanHelper(const Movie&) = 0;
+    virtual bool greaterThanHelper(const Movie&) = 0;
 protected:
 	string title;
 	string director;

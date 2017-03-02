@@ -1,6 +1,3 @@
-#include <cstdlib>
-#include <sstream>
-#include <iostream>
 #include "comedy.h"
 using namespace std;
 
