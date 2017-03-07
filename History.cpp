@@ -1,5 +1,4 @@
 #include "History.h"
-
 History::History(string data) {
 	istringstream ss(data);
 	ss >> transactionType;
@@ -13,11 +12,13 @@ char History::getTransactionType() {
 int History::getClientID() {
 	return clientID;
 }
-void History::doTransaction()
-{
-}
+//void History::checkHistory(History * action)
+//{
+//	Store::displayCustomerHistory(action,action->getClientID);
+//}
 ostream& History::print(ostream& output) const {
 	output << transactionType << " " << clientID  << endl;
 	return output;
 }
+
 

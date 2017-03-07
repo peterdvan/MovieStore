@@ -9,7 +9,7 @@ public:
 	History(string data);
 	char getTransactionType();
 	int getClientID();
-	void doTransaction();
+	static void checkHistory(History*);
 private:
 	ostream & print(ostream & output) const;
 	char transactionType; // type of transaction

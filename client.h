@@ -16,6 +16,7 @@ class Client {
 	friend ostream& operator<<(ostream& output, const Client &person);
 public:
 	Client();
+	Client(int id);
 	Client(string data); // default constructor
 						 // constructor
 	//Client(int num);

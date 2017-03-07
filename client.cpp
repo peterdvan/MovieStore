@@ -20,7 +20,9 @@ Client::~Client() {
 		log.push(action);
 	}
 }*/
-
+Client::Client(int id) {
+	clientId = id;
+}
 int Client::getId() {
 	return clientId;
 }

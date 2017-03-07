@@ -13,6 +13,3 @@ char Inventory::getTransactionType() {
 	return transactionType;
 }
 
-void Inventory::doTransaction()
-{
-}

@@ -69,8 +69,8 @@ bool Classics::equalHelper(const Movie &other) const {
 			(getMajorActor() == classicsOther->getMajorActor());
 }
 ostream& Classics::print(ostream & out) const {
-	out << "C, " << stock << ", " << director << ", " << majorActorFirstName
-		<< ", " << majorActorLastName << " " << title << " " << releaseMonth
+	out << "C, " << stock << ", " << director << ", " << title << ", "  <<
+		majorActorFirstName << " " << majorActorLastName << " " << releaseMonth
 		<< " " << yearOfRelease;
 	return out;
 }

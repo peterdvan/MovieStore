@@ -4,6 +4,8 @@
 #include "History.h"
 #include "Return.h"
 #include "transaction.h"
+#include "store.h"
+
 Transaction* TransactionFactory::buildTransaction(string data) {
     char type = data[0];
     switch (type) {
@@ -22,20 +24,38 @@ Transaction* TransactionFactory::buildTransaction(string data) {
     }
 }
 
-void TransactionFactory::doTransaction(Transaction* action) {
+
+void TransactionFactory::doTransaction(Transaction* action, Store* st) {
     char type = action->getTransactionType();
     switch (type) {
-        case 'I':
-            break;
-        case 'H':
+        case 'I': {
+            Inventory* newAction = dynamic_cast<Inventory *>(action);
 
+        }
             break;
-        case 'R':
-
+        case 'H': {
+            History* newAction = dynamic_cast<History *>(action);
+            st->displayCustomerHistory(newAction->getClientID());
+        }
             break;
-        case 'W':
+        case 'R': {
+            Return* newAction = dynamic_cast<Return *>(action);
 
+        }
+            break;
+        case 'B': {
+            Borrow* newAction = dynamic_cast<Borrow *>(action);
+
+        }
             break;
     }
+}
+
+TransactionFactory::TransactionFactory()
+{
+}
+
+TransactionFactory::~TransactionFactory()
+{
 }
 

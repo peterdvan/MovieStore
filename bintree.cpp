@@ -265,7 +265,7 @@ ostream& operator<<(ostream& out, const BinTree& tree) {
 void BinTree::inOrderWalk(Node *subtree) const {
     if (subtree != nullptr) {           //case: node is not null
         inOrderWalk(subtree->left);     //go to the left most node
-        cout << *subtree->data << " ";  //then print current data
+        cout << *subtree->data << endl;  //then print current data
         inOrderWalk(subtree->right);    //then right child
     }
 }
